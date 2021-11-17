@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 const FormTwit = () => {
   const initialValues = {
     title: "",
@@ -21,7 +23,7 @@ const FormTwit = () => {
     <div className="form-style">
       <form onSubmit={onSubmitPost}>
         <div className="form-group">
-          <label htmlFor="exampleFormControlTextarea1">Example textarea</label>
+          <label htmlFor="exampleFormControlTextarea1">Write twit</label>
           <textarea
             className="form-control"
             id="exampleFormControlTextarea1"
