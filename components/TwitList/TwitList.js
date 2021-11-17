@@ -1,11 +1,24 @@
 import Twit from "../Twit/Twit";
+import { useEffect, useState } from "react";
 
-export default function TwitList({ twitsList }) {
-  console.log(twitsList);
+const TwitList = () => {
+  const [twits, setTwits] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      const res = await fetch(
+        "https://tuiter-claudia-jordi.herokuapp.com/twits"
+      );
+      const twitList = await res.json();
+      setTwits(twitList);
+    })();
+  }, [setTwits]);
+
+  console.log("en el map" + twits);
   return (
     <div>
       <ul>
-        {twitsList.map((twit) => (
+        {twits.map((twit) => (
           <div href={`dashboard/${twit.id}`} key={twit.id}>
             <Twit twit={twit} />
           </div>
@@ -13,18 +26,6 @@ export default function TwitList({ twitsList }) {
       </ul>
     </div>
   );
-}
-
-export const getServerSideProps = async () => {
-  const response = await fetch(
-    "https://tuiter-claudia-jordi.herokuapp.com/twits"
-  );
-  const twitsList = await response.json();
-
-  console.log(twitsList);
-  return {
-    props: {
-      twitsList,
-    },
-  };
 };
+
+export default TwitList;
