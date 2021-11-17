@@ -1,7 +1,26 @@
-import FormTwit from "@/components/FormTwit/FormTwit";
+import FormTwit from "@/components/FormTwit/FormTwit/FormTwit";
+import TwitList from "@/components/TwitList/TwitList";
+import styles from "./index.module.css";
 
 const Dashboard = () => {
-  return <FormTwit></FormTwit>;
+  return (
+    <>
+      <div className={styles.container}>
+        <div className={styles.header}>
+          <h2 className={styles.title}>OWL BIRD</h2>
+          <p>
+            No deixis que la vida et passi. Per no perdre't res viu el present
+            enganxat a owl bird.
+          </p>
+          <p>T'ho expliquem tot!</p>
+        </div>
+        <FormTwit />;
+        <div>
+          <TwitList />
+        </div>
+      </div>
+    </>
+  );
 };
 
 export default Dashboard;
