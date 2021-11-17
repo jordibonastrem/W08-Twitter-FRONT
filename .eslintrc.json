@@ -1,0 +1,26 @@
+{
+  "root": true,
+  "extends": ["next/core-web-vitals"],
+  "plugins": ["testing-library"],
+  "rules": {
+    "no-param-reassign": "off",
+    "no-plusplus": "off",
+    "no-restricted-syntax": "off",
+    "consistent-return": "off",
+    "no-debugger": "off",
+    "no-console": "off",
+    "lines-between-class-members": "off",
+    "class-methods-use this": "off",
+    "import/extensions": "off"
+  },
+  "overrides": [
+    // Only uses Testing Library lint rules in test files
+    {
+      "files": [
+        "**/__tests__/**/*.[jt]s?(x)",
+        "**/?(*.)+(spec|test).[jt]s?(x)"
+      ],
+      "extends": ["plugin:testing-library/react", "airbnb-base", "prettier"]
+    }
+  ]
+}
