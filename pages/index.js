@@ -11,7 +11,7 @@ const Home = () => (
 
     <main>
       <h1 className={styles.title}>OWL BIRD</h1>
-      <Link href="/dashboard">
+      <Link href="/dashboard" passHref>
         <div className={styles.grid}>
           <a className={styles.card}>START</a>
         </div>
