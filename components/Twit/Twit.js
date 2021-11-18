@@ -5,7 +5,26 @@ import PropTypes, { number } from "prop-types";
 
 TimeAgo.addLocale(es);
 
+
 const Twit = ({ twit }) => {
+
+export default function Twit({ twit }) {
+  const onDelete = async (event) => {
+    await fetch(
+      // eslint-disable-next-line no-underscore-dangle
+      `https://tuiter-claudia-jordi.herokuapp.com/twits/${twit.id}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    event.preventDefault();
+  };
+
+
   return (
     <div className="card text-center mb-3">
       <div className="card-body">
@@ -13,7 +32,12 @@ const Twit = ({ twit }) => {
         <button type="button" className="btn btn-primary btn-sm">
           Like
         </button>
-        <button type="button" className="btn btn-secondary btn-sm">
+
+        <button
+          onClick={onDelete}
+          type="button"
+          className="btn btn-secondary btn-lg"
+        >
           Delete
         </button>
       </div>
@@ -28,10 +52,10 @@ const Twit = ({ twit }) => {
 
 export const getServerSideProps = async () => {
   const response = await fetch(
-    "https://isdi-blog-posts-api.herokuapp.com/posts"
+    "https://tuiter-claudia-jordi.herokuapp.com/twits"
   );
   const postsList = await response.json();
-
+  console.log(postsList);
   return {
     props: {
       Posts: postsList,
