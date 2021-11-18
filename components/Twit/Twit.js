@@ -10,8 +10,10 @@ export default function Twit({ twit }) {
           Delete
         </button>
       </div>
-      <div className="card-footer text-muted">{twit.likes}</div>
-      <div className="card-footer text-muted">{twit.date}</div>
+      <div className="card-footer text-muted d-flex justify-content-between">
+        <div>{twit.likes} likes</div>
+        <div>{twit.date}</div>
+      </div>
     </div>
   );
 }
