@@ -1,3 +1,9 @@
+import ReactTimeAgo from "react-time-ago";
+import TimeAgo from "javascript-time-ago";
+import es from "javascript-time-ago/locale/es.json";
+
+TimeAgo.addLocale(es);
+
 export default function Twit({ twit }) {
   return (
     <div className="card text-center">
@@ -12,7 +18,8 @@ export default function Twit({ twit }) {
       </div>
       <div className="card-footer text-muted d-flex justify-content-between">
         <div>{twit.likes} likes</div>
-        <div>{twit.date}</div>
+        <ReactTimeAgo date={Date.parse(twit.date)} locale="es" />
+        {/* <div>{twit.date}</div> */}
       </div>
     </div>
   );
