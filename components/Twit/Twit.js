@@ -5,6 +5,20 @@ import es from "javascript-time-ago/locale/es.json";
 TimeAgo.addLocale(es);
 
 export default function Twit({ twit }) {
+  const onDelete = async () => {
+    const response = await fetch(
+      `https://isdi-blog-posts-api.herokuapp.com/posts/ ${twit.id}`,
+      {
+        method: "DELETE",
+        body: JSON.stringify({ id: post.id }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    const postsList = await response.json();
+  };
+
   return (
     <div className="card text-center mb-3">
       <div className="card-body">
@@ -12,7 +26,13 @@ export default function Twit({ twit }) {
         <button type="button" className="btn btn-primary btn-sm">
           Like
         </button>
-        <button type="button" className="btn btn-secondary btn-sm">
+
+        <button
+          onClick={onDelete}
+          type="button"
+          className="btn btn-secondary btn-lg"
+        >
+
           Delete
         </button>
       </div>
