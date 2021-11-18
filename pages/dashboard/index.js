@@ -15,7 +15,7 @@ const Dashboard = () => {
           <p>Tho expliquem tot!</p>
         </div>
         <FormTwit />
-        <div>
+        <div className="row col-12 twit">
           <TwitList />
         </div>
       </div>
