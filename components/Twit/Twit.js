@@ -2,13 +2,26 @@ import ReactTimeAgo from "react-time-ago";
 import TimeAgo from "javascript-time-ago";
 import es from "javascript-time-ago/locale/es.json";
 import PropTypes, { number } from "prop-types";
+import { useState } from "react";
 
 TimeAgo.addLocale(es);
 
-
 const Twit = ({ twit }) => {
+  const onLike = async (event) => {
+    event.preventDefault();
+    await fetch(
+      // eslint-disable-next-line no-underscore-dangle
+      `https://tuiter-claudia-jordi.herokuapp.com/twits/like/${twit.id}`,
+      {
+        method: "PATCH",
+        body: JSON.stringify({ id: twit.id }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+  };
 
-export default function Twit({ twit }) {
   const onDelete = async (event) => {
     await fetch(
       // eslint-disable-next-line no-underscore-dangle
@@ -24,19 +37,22 @@ export default function Twit({ twit }) {
     event.preventDefault();
   };
 
-
   return (
     <div className="card text-center mb-3">
       <div className="card-body">
         <p className="card-text">{twit.text}</p>
-        <button type="button" className="btn btn-primary btn-sm">
+        <button
+          type="button"
+          className="btn btn-primary btn-sm"
+          onClick={onLike}
+        >
           Like
         </button>
 
         <button
           onClick={onDelete}
           type="button"
-          className="btn btn-secondary btn-lg"
+          className="btn btn-secondary btn-sm"
         >
           Delete
         </button>
@@ -67,7 +83,7 @@ Twit.propTypes = {
   twit: PropTypes.shape({
     text: PropTypes.string.isRequired,
     likes: PropTypes.number.isRequired,
-    date: PropTypes.number.isRequired,
+    date: PropTypes.string.isRequired,
   }),
 };
 
