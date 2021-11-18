@@ -1,6 +1,7 @@
 import Twit from "../Twit/Twit";
 import { useEffect, useState } from "react";
 
+
 const TwitList = () => {
   const [twits, setTwits] = useState([]);
 
@@ -15,6 +16,7 @@ const TwitList = () => {
   }, [setTwits]);
 
   console.log("en el map" + twits);
+
   return (
     <div>
       <ul>
@@ -26,6 +28,7 @@ const TwitList = () => {
       </ul>
     </div>
   );
+
 };
 
 export default TwitList;

@@ -8,15 +8,24 @@ const FormTwit = () => {
   const [tuitData, setPostData] = useState(initialValues);
   const [buttonDisabled, setButtonDisabled] = useState(true);
 
+  const resetForm = () => {
+    setTuitData(initialData);
+  };
   const changeData = (event) => {
     setPostData({
       ...tuitData,
       [event.target.id]: event.target.value,
     });
   };
-  const onSubmitPost = (event) => {
+  const onSubmitPost = async (event) => {
     event.preventDefault();
-    axios.post(process.env.REACT_APP_API_URL, tuitData);
+    await fetch("https://tuits.herokuapp.com/tuits", {
+      method: "POST",
+      body: JSON.stringify(tuitData),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
   };
 
   useEffect(() => {

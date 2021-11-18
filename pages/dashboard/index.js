@@ -9,10 +9,10 @@ const Dashboard = () => {
         <div className={styles.header}>
           <h2 className={styles.title}>OWL BIRD</h2>
           <p>
-            No deixis que la vida et passi. Per no perdre't res viu el present
+            No deixis que la vida et passi. Per no perdret res viu el present
             enganxat a owl bird.
           </p>
-          <p>T'ho expliquem tot!</p>
+          <p>Tho expliquem tot!</p>
         </div>
         <FormTwit />;
         <div>
