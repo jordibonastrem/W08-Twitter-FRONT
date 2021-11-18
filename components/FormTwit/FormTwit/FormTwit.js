@@ -9,10 +9,10 @@ const FormTwit = () => {
   const [buttonDisabled, setButtonDisabled] = useState(true);
 
   const resetForm = () => {
-    setTuitData(initialData);
+    setTuitData(initialValues);
   };
   const changeData = (event) => {
-    setPostData({
+    setTuitData({
       ...tuitData,
       [event.target.id]: event.target.value,
     });

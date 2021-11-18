@@ -1,10 +1,11 @@
 import ReactTimeAgo from "react-time-ago";
 import TimeAgo from "javascript-time-ago";
 import es from "javascript-time-ago/locale/es.json";
+import PropTypes, { number } from "prop-types";
 
 TimeAgo.addLocale(es);
 
-export default function Twit({ twit }) {
+const Twit = ({ twit }) => {
   return (
     <div className="card text-center mb-3">
       <div className="card-body">
@@ -23,7 +24,7 @@ export default function Twit({ twit }) {
       </div>
     </div>
   );
-}
+};
 
 export const getServerSideProps = async () => {
   const response = await fetch(
@@ -37,3 +38,13 @@ export const getServerSideProps = async () => {
     },
   };
 };
+
+Twit.propTypes = {
+  twit: PropTypes.shape({
+    text: PropTypes.string.isRequired,
+    likes: PropTypes.number.isRequired,
+    date: PropTypes.number.isRequired,
+  }),
+};
+
+export default Twit;
