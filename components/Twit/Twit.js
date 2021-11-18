@@ -1,12 +1,12 @@
 export default function Twit({ twit }) {
   return (
-    <div className="card text-center">
+    <div className="card text-center mb-3">
       <div className="card-body">
         <p className="card-text">{twit.text}</p>
-        <button type="button" className="btn btn-primary btn-lg">
+        <button type="button" className="btn btn-primary btn-sm">
           Like
         </button>
-        <button type="button" className="btn btn-secondary btn-lg">
+        <button type="button" className="btn btn-secondary btn-sm">
           Delete
         </button>
       </div>
