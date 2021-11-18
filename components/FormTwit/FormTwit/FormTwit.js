@@ -5,7 +5,7 @@ const FormTwit = () => {
     text: "",
   };
 
-  const [tuitData, setPostData] = useState(initialValues);
+  const [tuitData, setTuitData] = useState(initialValues);
   const [buttonDisabled, setButtonDisabled] = useState(true);
 
   const resetForm = () => {
@@ -26,6 +26,7 @@ const FormTwit = () => {
         "Content-Type": "application/json",
       },
     });
+    resetForm();
   };
 
   useEffect(() => {

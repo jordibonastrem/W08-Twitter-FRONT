@@ -10,7 +10,7 @@ const TwitList = () => {
         "https://tuiter-claudia-jordi.herokuapp.com/twits"
       );
       const twitList = await res.json();
-      setTwits(twitList);
+      setTwits(twitList.reverse());
     })();
   }, [setTwits]);
 

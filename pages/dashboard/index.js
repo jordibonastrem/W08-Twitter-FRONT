@@ -14,7 +14,7 @@ const Dashboard = () => {
           </p>
           <p>Tho expliquem tot!</p>
         </div>
-        <FormTwit />;
+        <FormTwit />
         <div>
           <TwitList />
         </div>
