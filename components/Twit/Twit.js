@@ -5,18 +5,19 @@ import es from "javascript-time-ago/locale/es.json";
 TimeAgo.addLocale(es);
 
 export default function Twit({ twit }) {
-  const onDelete = async () => {
-    const response = await fetch(
-      `https://isdi-blog-posts-api.herokuapp.com/posts/ ${twit.id}`,
+  const onDelete = async (event) => {
+    await fetch(
+      // eslint-disable-next-line no-underscore-dangle
+      `https://tuiter-claudia-jordi.herokuapp.com/twits/${twit.id}`,
       {
         method: "DELETE",
-        body: JSON.stringify({ id: post.id }),
         headers: {
           "Content-Type": "application/json",
         },
       }
     );
-    const postsList = await response.json();
+
+    event.preventDefault();
   };
 
   return (
@@ -32,7 +33,6 @@ export default function Twit({ twit }) {
           type="button"
           className="btn btn-secondary btn-lg"
         >
-
           Delete
         </button>
       </div>
@@ -50,7 +50,7 @@ export const getServerSideProps = async () => {
     "https://isdi-blog-posts-api.herokuapp.com/posts"
   );
   const postsList = await response.json();
-
+  console.log(postsList);
   return {
     props: {
       Posts: postsList,
