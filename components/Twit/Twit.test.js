@@ -2,7 +2,7 @@ const { screen, render } = require("@testing-library/react");
 const { Twit } = require("./Twit");
 
 describe("Given a Twit component", () => {
-  describe("When it reciveves a twit object", () => {
+  describe("When it receives a twit object", () => {
     test("Then it should render a twit with text, data and likes", () => {
       const twit = {
         text: "FDf",
