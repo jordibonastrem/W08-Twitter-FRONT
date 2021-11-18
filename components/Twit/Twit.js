@@ -47,7 +47,7 @@ export default function Twit({ twit }) {
 
 export const getServerSideProps = async () => {
   const response = await fetch(
-    "https://isdi-blog-posts-api.herokuapp.com/posts"
+    "https://tuiter-claudia-jordi.herokuapp.com/twits"
   );
   const postsList = await response.json();
   console.log(postsList);
