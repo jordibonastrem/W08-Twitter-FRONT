@@ -6,7 +6,8 @@
     "build": "next build",
     "start": "next start",
     "test": "jest --watch --collect-coverage",
-    "test:ci": "jest --ci"
+    "test:ci": "jest --ci",
+    "prepare": "husky install"
   },
   "dependencies": {
     "bootstrap": "^5.1.3",
@@ -22,7 +23,7 @@
     "@testing-library/react": "12.0.0",
     "@testing-library/user-event": "13.2.1",
     "babel-jest": "27.0.6",
-    "eslint": "7.32.0",
+    "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-next": "latest",
     "eslint-config-prettier": "^8.3.0",
@@ -44,5 +45,8 @@
   "bugs": {
     "url": "https://github.com/jordibonastrem/W08-Twitter-FRONT/issues"
   },
-  "homepage": "https://github.com/jordibonastrem/W08-Twitter-FRONT#readme"
+  "homepage": "https://github.com/jordibonastrem/W08-Twitter-FRONT#readme",
+  "lint-staged": {
+    "*.js": "eslint --cache --fix"
+  }
 }
